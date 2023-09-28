@@ -63,10 +63,6 @@
         <welcome-file>/register.jsp</welcome-file>
     </welcome-file-list>
 
-    <listener>
-        <listener-class>com.epam.webdemoapp.listeners.RequestAttributeListener</listener-class>
-    </listener>
-
     <filter>
         <filter-name>nameValidation</filter-name>
         <filter-class>com.epam.webdemoapp.filters.NameValidationFilter</filter-class>
