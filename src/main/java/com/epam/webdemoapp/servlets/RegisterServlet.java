@@ -31,6 +31,6 @@ public class RegisterServlet extends HttpServlet {
 
 
 
-        req.getRequestDispatcher("/welcomePage").forward(req, resp);
+        req.getRequestDispatcher("/showLoginPage").forward(req, resp);
     }
 }

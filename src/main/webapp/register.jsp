@@ -10,7 +10,7 @@
 <body>
   <div class="wrapper">
     <h2>Registration</h2>
-    <form action="/webdemo1/register" method="post">
+    <form action="<%= request.getContextPath() %>/register" method="post">
       <div class="input-box">
         <input name="name" type="name" placeholder="Enter your name" required>
       </div>
@@ -31,7 +31,7 @@
         <input type="Submit" value="Register">
       </div>
       <div class="text">
-        <h3>Already have an account? <a href="#">Login now</a></h3>
+        <h3>Already have an account? <a href="login.jsp">Login now</a></h3>
       </div>
     </form>
   </div>
