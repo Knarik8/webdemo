@@ -30,24 +30,24 @@ public class UserManager implements Manager<User, String> {
     }
 
     @Override
-    public User getByUsernamePassword(String name, String password) {
+    public boolean getByEmailPassword(String email, String password) {
         connection = ConnectionProvider.getInstance();
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users where name=? and password=?");
-            preparedStatement.setString(1, name);
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users where email=? and password=?");
+            preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 User user = new User();
-                user.setName(resultSet.getString("name"));
+                user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
-                return user;
+                return true;
             }
         } catch (SQLException e) {
-            throw new ResourceNotFoundException(String.format("Given user with login: %s and password %s not found", name, password));
+            throw new ResourceNotFoundException(String.format("Given user with email: %s and password %s not found", email, password));
         }
-        return null;
+        return false;
     }
 
 }
