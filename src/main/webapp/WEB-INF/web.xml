@@ -65,12 +65,12 @@
 
 
     <servlet>
-        <servlet-name>ErrorPage</servlet-name>
-        <jsp-file>/error.jsp</jsp-file>
+        <servlet-name>SuccessLoginView</servlet-name>
+        <jsp-file>/success.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ErrorPage</servlet-name>
-        <url-pattern>/error</url-pattern>
+        <servlet-name>SuccessLoginView</servlet-name>
+        <url-pattern>/success</url-pattern>
     </servlet-mapping>
 
 
