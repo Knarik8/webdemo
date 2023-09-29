@@ -12,11 +12,11 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
+        String name = req.getParameter("name");
         String password = req.getParameter("password");
         UserManager userManager = new UserManager();
-        User user = userManager.getByUsernamePassword(username, password);
-        req.getSession().setAttribute("user", user.getUserName() + ":" + user.getPassword());
+        User user = userManager.getByUsernamePassword(name, password);
+        req.getSession().setAttribute("user", user.getName() + ":" + user.getPassword());
 
 
         req.getRequestDispatcher("/welcomePage").forward(req, resp);

@@ -12,16 +12,19 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
+        String name = req.getParameter("name");
+        String email = req.getParameter("email");
         String password = req.getParameter("password");
-        int age = Integer.parseInt(req.getParameter("age"));
-        req.getSession().setAttribute("user", username + ":" + password);
+        String confirmPassword = req.getParameter("confirmPassword");
 
         User user = new User();
-        user.setUserName(username);
-        user.setPassword(password);
-        user.setAge(age);
 
+        user.setName(name);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setConfirmPassword(confirmPassword);
+
+        req.getSession().setAttribute("user", user);
 
         UserManager userManager = new UserManager();
         userManager.create(user);

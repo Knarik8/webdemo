@@ -17,8 +17,8 @@ public class WelcomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         //business logic
-        String username = req.getParameter("username");
-        req.setAttribute("user", username);
+        String name = req.getParameter("name");
+        req.setAttribute("user", name);
 
         req.getRequestDispatcher("/welcome.jsp").forward(req, resp);
 
