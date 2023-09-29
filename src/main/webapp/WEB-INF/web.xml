@@ -63,15 +63,6 @@
         <welcome-file>/register.jsp</welcome-file>
     </welcome-file-list>
 
-    <filter>
-        <filter-name>nameValidation</filter-name>
-        <filter-class>com.epam.webdemoapp.filters.NameValidationFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>nameValidation</filter-name>
-        <servlet-name>RegisterServlet</servlet-name>
-    </filter-mapping>
-
 
     <servlet>
         <servlet-name>ErrorPage</servlet-name>
@@ -82,6 +73,26 @@
         <url-pattern>/error</url-pattern>
     </servlet-mapping>
 
+
+
+    <filter>
+        <filter-name>nameValidation</filter-name>
+        <filter-class>com.epam.webdemoapp.filters.NameValidationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>nameValidation</filter-name>
+        <servlet-name>RegisterServlet</servlet-name>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>emailValidationFilter</filter-name>
+        <filter-class>com.epam.webdemoapp.filters.EmailValidationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>emailValidationFilter</filter-name>
+        <servlet-name>RegisterServlet</servlet-name>
+    </filter-mapping>
 
     <filter>
         <filter-name>passwordValidationFilter</filter-name>
@@ -94,14 +105,15 @@
     </filter-mapping>
 
     <filter>
-        <filter-name>ageValidationFilter</filter-name>
-        <filter-class>com.epam.webdemoapp.filters.AgeValidationFilter</filter-class>
+        <filter-name>confirmPasswordValidationFilter</filter-name>
+        <filter-class>com.epam.webdemoapp.filters.ConfirmPasswordValidationFilter</filter-class>
     </filter>
 
     <filter-mapping>
-        <filter-name>ageValidationFilter</filter-name>
+        <filter-name>confirmPasswordValidationFilter</filter-name>
         <servlet-name>RegisterServlet</servlet-name>
     </filter-mapping>
+
 
 
 </web-app>
