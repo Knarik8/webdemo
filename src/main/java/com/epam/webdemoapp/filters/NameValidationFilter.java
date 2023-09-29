@@ -3,6 +3,7 @@ package com.epam.webdemoapp.filters;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class NameValidationFilter implements Filter {
     @Override
@@ -12,12 +13,15 @@ public class NameValidationFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        String username = request.getParameter("username");
-        if(username.length() > 5){
+        String name = request.getParameter("name");
+        if(name.length() > 5){
             chain.doFilter(request, response);
         } else {
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("/webdemo1/error");
+            RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
+            PrintWriter out= response.getWriter();
+            out.println("<font color=red>Name is not valid.</font>");
+            rd.include(request, response);
+
         }
     }
 

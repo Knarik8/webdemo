@@ -3,8 +3,9 @@ package com.epam.webdemoapp.filters;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-public class AgeValidationFilter implements Filter {
+public class EmailValidationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -12,13 +13,17 @@ public class AgeValidationFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        Integer age = Integer.valueOf(request.getParameter("age"));
-        if (age >= 18 && age < 100) {
+        String pattern = "^(.+)@(.+)$";
+        String email = request.getParameter("email");
+        if(email.matches(pattern)){
             chain.doFilter(request, response);
         } else {
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("/webdemo1/error");
+            RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
+            PrintWriter out= response.getWriter();
+            out.println("<font color=red>Email is not valid.</font>");
+            rd.include(request, response);
         }
+
     }
 
     @Override
