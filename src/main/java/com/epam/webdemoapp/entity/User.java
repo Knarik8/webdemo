@@ -1,26 +1,36 @@
 package com.epam.webdemoapp.entity;
 
 public class User {
-    private String userName;
+    private String name;
+    private String email;
     private String password;
-    private int age;
+    private String confirmPassword;
 
     public User(){
 
     }
 
-    public User(String userName, String password, int age){
-        this.userName = userName;
+    public User(String name, String email, String password, String confirmPassword){
+        this.name = name;
+        this.email = email;
         this.password = password;
-        this.age = age;
+        this.confirmPassword = confirmPassword;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -31,20 +41,21 @@ public class User {
         this.password = password;
     }
 
-    public int getAge() {
-        return age;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", age=" + age +
+                ", confirmPassword='" + confirmPassword + '\'' +
                 '}';
     }
 }
