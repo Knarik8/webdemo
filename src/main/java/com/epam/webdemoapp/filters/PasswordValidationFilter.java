@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class PasswordValidationFilter implements Filter {
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
 
     }
 
